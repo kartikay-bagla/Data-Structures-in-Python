@@ -9,14 +9,11 @@ class LinkedList(object):
 
     def insertStart(self, data):
         """Inserts the data as a node in O(1) time."""
-        self.counter += 1 #Increase the counter
-        newNode = Node(data) #Convert the data into a Node
+        self.counter += 1
+        newNode = Node(data)
         if self.head == None:
-            #If the linked list is empty, set the data as the head
             self.head = newNode 
         else:
-            #If there is a node at the head, move it to the next node 
-            #of the new node and set the new node as the head
             newNode.nextNode = self.head
             self.head = newNode
 
@@ -33,9 +30,6 @@ class LinkedList(object):
             #If there is no head, set the data as the head
             self.insertStart(data)
         else:
-            #If there is a node at the head, keep moving to the next node until 
-            #the nextNode = None where the nextNode of the last element 
-            #will be set to the data
             newNode = Node(data)
             actualNode = self.head
             while actualNode.nextNode is not None:
@@ -50,12 +44,8 @@ class LinkedList(object):
             self.counter -= 1   #Else decrement the counter
         if self.head:
             if data == self.head.data:
-                #If data is at the head, set the self.head 
-                #to be the next node (garbage collecter sees 0 references 
-                #to the previous self.head and collects it)
                 self.head = self.head.nextNode
             else:
-                #Else call the recursive Node.remove function on the head Node
                 self.head.remove(data, self.head)
 
     def traverseList(self):
@@ -90,7 +80,7 @@ class LinkedList(object):
         #index error is raised instead
         actualNode = self.head
         try:
-            for i in range(index - 1):
+            for i in range(index):
                 actualNode = actualNode.nextNode
         except:
             raise IndexError

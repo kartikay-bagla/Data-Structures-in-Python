@@ -21,3 +21,5 @@ linkedList.insertIndex(2, 100)
 print("t3")
 linkedList.traverseList()
 print("size:", linkedList.size())
+
+print("element 3: ", linkedList.index(2))
